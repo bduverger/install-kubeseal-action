@@ -4,7 +4,7 @@ import * as path from 'path';
 
 async function run() {
   try {
-    let version = core.getInput('gh-cli-version');
+    let version = core.getInput('cli-release');
     let platform = core.getInput('platform');
     let arch = core.getInput('arch');
     if (version) {
