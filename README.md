@@ -9,8 +9,8 @@ Selfhosted runners do not come with the GH CLI out of the box. This action is an
   uses: alexnorell/install-gh-cli-action
   with:
     cli-release: 2.24.3
-    gh-platform: linux
-    gh-arch: amd64
+    platform: linux
+    arch: amd64
 ```
 
 ## Variables
