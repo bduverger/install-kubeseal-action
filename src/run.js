@@ -16,7 +16,7 @@ async function run() {
 }
 
 async function getGhCli(version, platform, arch) {
-  let toolPath = tc.find('gh-cli', version);
+  let toolPath = tc.find('gh-cli', version, platform, arch);
 
   if (!toolPath) {
     toolPath = await downloadGhCli(version, platform, arch);
@@ -35,7 +35,7 @@ async function downloadGhCli(version, platform, arch) {
     const downloadPath = await tc.downloadTool(downloadUrl);
     const extractedPath = await tc.extractTar(downloadPath);
     let toolRoot = path.join(extractedPath, toolDirectoryName);
-    return await tc.cacheDir(toolRoot, 'gh-cli', version);
+    return await tc.cacheDir(toolRoot, 'gh-cli', version, platform, arch);
   } catch (err) {
     throw err;
   }
