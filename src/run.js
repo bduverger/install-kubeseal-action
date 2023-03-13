@@ -5,8 +5,8 @@ import * as path from 'path';
 async function run() {
   try {
     let version = core.getInput('gh-cli-version');
-    let platform = core.getInput('platform')
-    let arch = core.getInput('arch')
+    let platform = core.getInput('platform');
+    let arch = core.getInput('arch');
     if (version) {
       await getGhCli(version, platform, arch);
     }
