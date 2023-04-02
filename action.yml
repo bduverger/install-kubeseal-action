@@ -1,11 +1,11 @@
-name: 'Self-hosted GH CLI'
-description: 'Download, cache and install the GH CLI to the workspace'
+name: 'Self-hosted kubeseal'
+description: 'Download, cache and install the kubeseal to the workspace'
 author: 'alexnorell'
 inputs:
-  cli-release:
-    description: 'Version of the GitHub-CLI that should be installed'
+  release:
+    description: 'Version of the kubeseal that should be installed'
     required: false
-    default: '2.24.3'
+    default: '0.20.2'
   arch:
     description: 'Architecture to download and install'
     required: false

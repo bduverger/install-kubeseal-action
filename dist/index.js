@@ -6769,22 +6769,22 @@ __nccwpck_require__.r(__webpack_exports__);
 
 async function run() {
   try {
-    let version = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('cli-release');
+    let version = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('release');
     let platform = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('platform');
     let arch = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('arch');
     if (version) {
-      await getGhCli(version, platform, arch);
+      await getKubeseal(version, platform, arch);
     }
   } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
   }
 }
 
-async function getGhCli(version, platform, arch) {
-  let toolPath = _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.find('gh-cli', version, platform, arch);
+async function getKubeseal(version, platform, arch) {
+  let toolPath = _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.find('kubeseal', version, platform, arch);
 
   if (!toolPath) {
-    toolPath = await downloadGhCli(version, platform, arch);
+    toolPath = await downloadKubeseal(version, platform, arch);
   }
 
   toolPath = path__WEBPACK_IMPORTED_MODULE_2__.join(toolPath, 'bin');
@@ -6792,15 +6792,15 @@ async function getGhCli(version, platform, arch) {
 }
 
 async function downloadGhCli(version, platform, arch) {
-  const toolDirectoryName = `gh_${version}_${platform}_${arch}`;
-  const downloadUrl = `https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${platform}_${arch}.tar.gz`;
+  const toolDirectoryName = `kubeseal_${version}_${platform}_${arch}`;
+  const downloadUrl = `https://github.com/bitnami-labs/sealed-secrets/releases/download/v${version}/kubeseal_${version}_${platform}_${arch}.tar.gz`;
   console.log(`downloading ${downloadUrl}`);
 
   try {
-    const downloadPath = await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.downloadTool(downloadUrl);
-    const extractedPath = await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.extractTar(downloadPath);
-    let toolRoot = path__WEBPACK_IMPORTED_MODULE_2__.join(extractedPath, toolDirectoryName);
-    return await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.cacheDir(toolRoot, 'gh-cli', version, platform, arch);
+    const downloadPath = await tc.downloadTool(downloadUrl);
+    const extractedPath = await tc.extractTar(downloadPath);
+    let toolRoot = path.join(extractedPath, toolDirectoryName);
+    return await tc.cacheDir(toolRoot, 'kubeseal', version, platform, arch);
   } catch (err) {
     throw err;
   }

@@ -1,14 +1,14 @@
-# Install GH CLI action
+# Install Kubeseal
 
 Selfhosted runners do not come with the GH CLI out of the box. This action is an easy-to-use way to install it.
 
 ## Usage
 
 ```yaml
-- name: Install GH CLI
-  uses: alexnorell/install-gh-cli-action
+- name: Install kubeseal
+  uses: bduverger/install-kubeseal-action
   with:
-    cli-release: 2.24.3
+    cli-release: 0.20.2
     platform: linux
     arch: amd64
 ```
@@ -17,6 +17,6 @@ Selfhosted runners do not come with the GH CLI out of the box. This action is an
 
 | Variable | Description | Default |
 | --- | --------- | --- |
-| `cli-release` | Version of the GH CLI to install | `2.24.3` |
+| `cli-release` | Version of the Kubeseal to install | `0.20.2` |
 | `platform` | Platform to use for the binary | `linux` |
 | `arch` | CPU Architecture for the binary | `amd64` |

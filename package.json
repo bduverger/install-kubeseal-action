@@ -1,7 +1,7 @@
 {
-  "name": "install-gh-cli-action",
+  "name": "install-kubeseal-action",
   "version": "0.0.1",
-  "description": "Download, cache and install the GH CLI to the workspace (GitHub Action)",
+  "description": "Download, cache and install the Kubeseal to the workspace (GitHub Action)",
   "main": "run.js",
   "scripts": {
     "build": "ncc build src/run.js -o dist",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dev-hanz-ops/install-gh-cli-action.git"
+    "url": "git+https://github.com/bduverger/install-kubeseal-action.git"
   },
   "keywords": [
     "github",
@@ -17,9 +17,9 @@
   ],
   "author": "dev-hanz-ops",
   "bugs": {
-    "url": "https://github.com/dev-hanz-ops/install-gh-cli-action/issues"
+    "url": "https://github.com/bduverger/install-kubeseal-action/issues"
   },
-  "homepage": "https://github.com/dev-hanz-ops/install-gh-cli-action#readme",
+  "homepage": "https://github.com/bduverger/install-kubeseal-action#readme",
   "dependencies": {
     "@actions/core": "^1.9.0",
     "@actions/tool-cache": "^2.0.1"
