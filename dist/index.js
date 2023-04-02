@@ -6791,16 +6791,16 @@ async function getKubeseal(version, platform, arch) {
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.addPath(toolPath);
 }
 
-async function downloadGhCli(version, platform, arch) {
+async function downloadKubeseal(version, platform, arch) {
   const toolDirectoryName = `kubeseal_${version}_${platform}_${arch}`;
   const downloadUrl = `https://github.com/bitnami-labs/sealed-secrets/releases/download/v${version}/kubeseal_${version}_${platform}_${arch}.tar.gz`;
   console.log(`downloading ${downloadUrl}`);
 
   try {
-    const downloadPath = await tc.downloadTool(downloadUrl);
-    const extractedPath = await tc.extractTar(downloadPath);
-    let toolRoot = path.join(extractedPath, toolDirectoryName);
-    return await tc.cacheDir(toolRoot, 'kubeseal', version, platform, arch);
+    const downloadPath = await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.downloadTool(downloadUrl);
+    const extractedPath = await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.extractTar(downloadPath);
+    let toolRoot = path__WEBPACK_IMPORTED_MODULE_2__.join(extractedPath, toolDirectoryName);
+    return await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.cacheDir(toolRoot, 'kubeseal', version, platform, arch);
   } catch (err) {
     throw err;
   }
