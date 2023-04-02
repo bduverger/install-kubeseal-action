@@ -6798,8 +6798,11 @@ async function downloadKubeseal(version, platform, arch) {
 
   try {
     const downloadPath = await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.downloadTool(downloadUrl);
-    const extractedPath = await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.extractTar(downloadPath);
+    console.log(`downloadpath ${downloadPath}`);
+    const extractedPath = await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.extractTar(downloadPath, toolDirectoryName);
+    console.log(`extractpath ${extractedPath}`);
     let toolRoot = path__WEBPACK_IMPORTED_MODULE_2__.join(extractedPath, toolDirectoryName);
+    console.log(`toolroot ${toolRoot}`);
     return await _actions_tool_cache__WEBPACK_IMPORTED_MODULE_1__.cacheDir(toolRoot, 'kubeseal', version, platform, arch);
   } catch (err) {
     throw err;

@@ -33,8 +33,11 @@ async function downloadKubeseal(version, platform, arch) {
 
   try {
     const downloadPath = await tc.downloadTool(downloadUrl);
-    const extractedPath = await tc.extractTar(downloadPath);
+    console.log(`downloadpath ${downloadPath}`);
+    const extractedPath = await tc.extractTar(downloadPath, toolDirectoryName);
+    console.log(`extractpath ${extractedPath}`);
     let toolRoot = path.join(extractedPath, toolDirectoryName);
+    console.log(`toolroot ${toolRoot}`);
     return await tc.cacheDir(toolRoot, 'kubeseal', version, platform, arch);
   } catch (err) {
     throw err;
