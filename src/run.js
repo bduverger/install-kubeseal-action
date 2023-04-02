@@ -28,7 +28,7 @@ async function getKubeseal(version, platform, arch) {
 
 async function downloadKubeseal(version, platform, arch) {
   const toolDirectoryName = `kubeseal_${version}_${platform}_${arch}`;
-  const downloadUrl = `https://github.com/bitnami-labs/sealed-secrets/releases/download/v${version}/kubeseal_${version}_${platform}_${arch}.tar.gz`;
+  const downloadUrl = `https://github.com/bitnami-labs/sealed-secrets/releases/download/v${version}/kubeseal-${version}-${platform}-${arch}.tar.gz`;
   console.log(`downloading ${downloadUrl}`);
 
   try {
